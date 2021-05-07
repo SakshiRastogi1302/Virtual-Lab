@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/simulation1.css">
+  <link rel="stylesheet" href="./css/fontawesome-free-5.13.0-web/css/all.min.css">
+  <!-- <link rel="shortcut icon" type="image/png" href="./css/images/Quiz1.png"> -->
+  <title>Simulation</title>
+</head>
+<body class="cse">
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top navborder fixedmargin">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+              <span class="navbar-toggler-icon"> </span>
+            </button>
+            <a class="navbar-brand" href="./index.html"><img src="./css/images/download.jpg" height="100px" ></a>
+      
+      
+            <div class="collapse navbar-collapse" id="Navbar">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link navcolor navhover "href="./index.html#title"><span class="fa fa-home fa-lg"></span> HOME</a>
+                  </li>
+      
+                  <li class="nav-item">
+                    <a class="nav-link navcolor navhover"href="./index.html#AboutUs"> <span class="fa fa-info fa-lg"></span> ABOUT</a>
+                  </li>
+      
+      
+                  <li class="nav-item">
+                    <a class="nav-link navcolor navhover"href="#contactUs"><span class="fa fa-address-card fa-lg"></span> CONTACT</a>
+                  </li>
+      
+                </ul>
+            </div>
+        </div>
+        </nav>
+
+        <button id="button" class="btn btn-info"><i class="fas fa-camera"></i> Take Screenshot</button>
+        <button id="button1" class="btn btn-info" onclick="openFullscreen()"><i class="fas fa-expand"></i> Open in Full Screen</button>
+
+
+
+        <section id="simulation">
+          <marquee behavior="scroll" direction="right" class="marquee1"> <strong>Note:- You can perform simulations only on your laptop</strong></marquee>
+
+          <div class="container">
+           
+            <canvas id="canva1">
+              </canvas>
+             
+              <div class="row">
+                <div class="col-sm-12">
+                  <button id="Line" class="btn btn-danger" title="Click on this button to add a connection between two nodes" onclick="enableMessage()"><img src="./css/images/Line.PNG" alt="" width="20px" height="5px"><strong> DRAW LINE</strong></button>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-sm-6">
+                  <button id="stopLine" class="btn btn-danger Line1" title="Click on this node button to add a line to simulator"><img src="./css/images/Line.PNG" alt="" width="20px" height="5px"><strong> STOP LINE</strong></button>
+                </div>
+              </div> -->
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button id="Node" class="btn btn-danger" title="Click on this button to add first node to simulator"><i class="fas fa-circle"></i><strong> DRAW NODE 1</strong></button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <button id="Node1" class="btn btn-danger" title="Click on this button to add second node to simulator"><i class="fas fa-circle"></i><strong> DRAW NODE 2</strong></button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <button id="Message" class="btn btn-danger" title="Click on this button to transfer message between two nodes (Make sure you have created the connection by drawing a line)" disabled><i class="fas fa-envelope"></i><strong> MESSAGE</strong></button>
+                </div>
+              </div>
+              <!-- <div class="row">
+                <div class="col-sm-6">
+                  <button id="message" class="btn btn-danger" title="Click on this node button to add a line to simulator"><i class="fas fa-circle"></i><strong> MESSAGE</strong></button>
+                </div>
+              </div> -->
+              <!-- <input type="button" id="btn" value="Play"> -->
+
+              <img src="https://media.giphy.com/media/3oKIPlBnWRmJH7DcvS/giphy.gif" width="215px"  height="9px" alt="" id="picture">
+
+
+
+              
+              
+            
+        </div>
+              
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+    <script src="http://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+    <script>
+    $('#picture').hide();
+    function enableMessage() {
+document.getElementById("Message").disabled = false;
+}
+       button.addEventListener("click",function(){
+                if(window.navigator.msSaveBlob){
+                        window.navigator.msSaveBlob(canva1.msToBlob(), "simulation-image.png")
+                        }
+            });
+
+         $(document).ready(function(){
+         $("#button").click(function(){
+         domtoimage.toBlob(document.getElementById('canva1')).then(function(blob){
+             window.saveAs(blob,"simulation-image.png");
+         });
+     });
+
+    
+ });
+
+
+ $('#Message').click(function(){
+  $('#picture').show(); // show on button click
+});
+
+ function openFullscreen() {
+  var elem = document.getElementById("canva1");
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+
+
+      // var Line=document.getElementById('startLine');
+      // Line.addEventListener('click',function(event) {  
+      //   var canvas = $("#canva1");
+      //   var context = canvas.get(0).getContext("2d");
+        
+      //   var canvasWidth = canvas.width();
+      //   var canvasHeight = canvas.height();
+        
+      //   var playAnimation = true;
+      //   var y = 0;
+        
+      //   var startButton = $("#startLine");
+      //   var stopButton = $("#stopLine");
+        
+      //   startButton.click(function() {
+      //     stopButton.show();
+          
+      //     playAnimation = true;
+      //     animate();
+      //   });
+        
+      //   stopButton.click(function() {
+      //     startButton.show();
+          
+      //     playAnimation = false;
+      //   });
+        
+      //   // Animation loop that does all the fun stuff
+      //   function animate() {
+      //     // Update
+      //     y+=1;
+          
+      //     // Clear
+      //     context.clearRect(0, 0, canvasWidth, canvasHeight);
+      //     context.fillStyle="blue";
+          
+      //     // Draw
+      //     context.fillRect(110, y, 90, 5);
+          
+      //     if (playAnimation) {
+      //       // Run the animation loop again in 33 milliseconds
+      //       setTimeout(animate, 33);
+      //     };
+      //   };
+        
+      //   // Start the animation loop
+      //   animate();
+      // });
+
+var Line=document.getElementById('Line');
+Line.addEventListener('click',function(event){
+  var canva1=document.getElementById('canva1');
+  var ctx=canva1.getContext('2d');
+ ctx.beginPath();
+ ctx.rect(110, 70, 80, 2);
+ ctx.fillStyle = "green";
+ ctx.fillText("CONNECTION SUCCESSFULL", 85, 40); 
+ ctx.stroke();
+  });
+
+      var Node=document.getElementById('Node');
+      Node.addEventListener('click',function(event){  
+      var canva1=document.getElementById('canva1');
+
+      var ctx=canva1.getContext('2d');
+      ctx.save();
+      ctx.strokeStyle='black';
+      ctx.beginPath();
+      ctx.arc(95,70,15,0,2*Math.PI);
+      ctx.stroke();
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      ctx.font = "10px Comic Sans MS";
+      ctx.fillStyle = "blue";
+      ctx.fillText("NODE 1", 85, 100); 
+      ctx.restore();
+
+
+});
+
+var Node=document.getElementById('Node1');
+      Node.addEventListener('click',function(event){  
+      var canva1=document.getElementById('canva1');
+      var ctx=canva1.getContext('2d');
+      ctx.save();
+      ctx.strokeStyle='black';
+      ctx.beginPath();
+      ctx.arc(205,70,15,0,2*Math.PI);
+      ctx.stroke();
+      ctx.fillStyle = "yellow";
+      ctx.fill();
+      ctx.font = "10px Comic Sans MS";
+      ctx.fillStyle = "blue";
+      ctx.fillText("NODE 2", 190, 100); 
+      ctx.restore();
+
+
+});
+
+// var Node=document.getElementById('message');
+//       Node.addEventListener('click',function(event){  
+//       var canva1=document.getElementById('canva1');
+//       var ctx=canva1.getContext('2d');
+//       ctx.beginPath();
+//       ctx.rect(110, 70, 10, 10);
+//       ctx.stroke();
+
+// });
+
+// var left = 0;
+// const btn = document.getElementById("btn");
+// canvas = document.getElementsByTagName("canvas")[0];
+// ctx = canvas.getContext("2d");
+// ctx.save();
+// const w = canvas.width;
+// const h = canvas.height;
+
+// let xPos = 80;
+// let playing = false;
+
+// function updateVert() {
+//   if(!playing) {
+//     cancelAnimationFrame(updateVert);
+//     return;
+//   }
+  
+//   xPos += 1;
+  
+//   if(xPos >= 200) {
+//     // stop animation...
+//     xPos = 50;
+//     playing = false;
+//     btn.value = "Play";
+//   }
+  
+//   // reset rectangle content to erase previous line...
+//   ctx.clearRect(0, 0, w, h);
+  
+//   // draw new one...
+//   ctx.beginPath();
+//   // ctx.strokeStyle = "black";
+//   // ctx.lineWidth = 2;
+//   // ctx.moveTo(xPos, 50);
+//   // ctx.lineTo(xPos, 100);
+//   ctx.rect(xPos,68, 10, 5);
+//   ctx.fillStyle = "red";
+//   ctx.fill();
+//   // ctx.stroke();
+  
+//   if(playing) requestAnimationFrame(updateVert);
+// }
+
+// document.getElementById("btn").addEventListener('click', function(e) {
+//   e.preventDefault();
+
+//   if(playing) {
+//     // pause...
+//     playing = false;
+//   }
+//   else {
+//     playing = !playing;
+//     updateVert();
+//   }
+  
+//   btn.value = playing?"Pause":"Play";
+// });
+// ctx.restore();
+
+
+
+
+    </script>
+  </head>
+  </body>
+</html>
